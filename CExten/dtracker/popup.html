@@ -1,0 +1,85 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <style type="text/css">
+      .dt-body {
+        margin: 10px;
+        white-space: nowrap;
+        font-family: arial;
+        background: #333;
+        color: #fff;
+        font-size: 14px;
+      }
+      .dt_btn {
+        background: green;
+        color: #fff;
+        border: none;
+        padding: 3px 10px;
+      }
+      .dt_txtbox {
+        background: #ccc;
+        color: #666;
+        padding: 3px 10px;
+      }
+      .dt-row {
+        padding: 10px 0;
+      }
+      .dt-hide {
+        display: none;
+      }
+
+      h1 {
+        font-size: 18px;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+    -->
+   <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery-ui.css"/>
+  </head>
+
+<body class="dt-body">
+    <h1>Fine Tracker</h1>
+  <div class="dt-row dt-results"></div>  
+
+<form id="dt-test-form">
+  <div class="dt-row">
+    <label>Name</label><br/>
+    <input type="text" name="Name" class="dt_txtbox dt-name" placeholder="Name"/>
+  </div>
+  <div  class="dt-row">
+    <label>Fine Amount</label><br/>
+    <input type="Number" name="Fine" class="dt_txtbox" placeholder="Amount"/>
+  </div>
+  <div  class="dt-row">
+    <label>Reason</label><br/>
+      <select name="Reason" class="dt_txtbox">
+      <option value="0">---Please Select---</option>
+      <option value="Late">Late</option>
+      <option value="Tracker Not Updated">Tracker Not Updated</option>
+      <option value="Phone Rang">Phone Rang</option>
+      <option value="Others">Others</option>
+    </select>
+    </div>
+    
+
+  <div class="dt-row">
+    <button type="submit" class="dt_btn" id="dt-submit-form">Submit</button>
+  </div>
+
+</form>
+
+<script type="text/javascript" src="popup.js"></script>
+</html>
